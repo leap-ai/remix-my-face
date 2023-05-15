@@ -17,11 +17,8 @@ export default function Home() {
     <>
       <Container maxW="container.lg" mb={16}>
         <VStack align="center" py={8} gap={4}>
-          <Heading size={"lg"}>Draw It</Heading>
-          <Text textAlign={"center"}>
-            Draw something and our AI will generate an image based on your
-            sketch.
-          </Text>
+          <Heading size={"lg"}>Remix My Face</Heading>
+          <Text textAlign={"center"}>Take a selfie, get a custom avatar.</Text>
           <input type="file" accept="image/*" />
         </VStack>
       </Container>
