@@ -5,8 +5,8 @@ import GoogleAnalytics from "./components/GoogleAnalytics";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Draw It | powered by Leap",
-  description: "Sketch something and our AI will generate an image.",
+  title: "Remix My Face | powered by Leap",
+  description: "Take a selfie, get a custom avatar.",
 };
 
 export default function RootLayout({
