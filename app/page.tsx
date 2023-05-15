@@ -9,7 +9,6 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
-import Canvas from "./components/Canvas";
 
 export default function Home() {
   const apiUrl = "/api/remix";
@@ -23,7 +22,7 @@ export default function Home() {
             Draw something and our AI will generate an image based on your
             sketch.
           </Text>
-          <Canvas width={500} height={500} apiUrl={apiUrl} />
+          <input type="file" accept="image/*" />
         </VStack>
       </Container>
       <VStack
