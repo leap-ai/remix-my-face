@@ -25,36 +25,6 @@ export default function Home() {
           <input type="file" accept="image/*" />
         </VStack>
       </Container>
-      <VStack
-        position={"fixed"}
-        bottom={0}
-        w={"full"}
-        bg={"blackAlpha.200"}
-        borderWidth={1}
-        borderColor={"blackAlpha.300"}
-        backdropFilter={"blur(30px)"}
-      >
-        <HStack
-          p={2}
-          roundedTop={"md"}
-          gap={2}
-          flexDir={{
-            base: "column",
-            md: "row",
-          }}
-        >
-          <Heading size={"xs"}>{`Built using Leap's Remix API `}</Heading>
-          <Button
-            leftIcon={<FaGithub />}
-            size={"sm"}
-            as="a"
-            href="https://github.com/leap-api/draw-it"
-            target="_blank"
-          >
-            Fork on GitHub
-          </Button>
-        </HStack>
-      </VStack>
     </>
   );
 }
