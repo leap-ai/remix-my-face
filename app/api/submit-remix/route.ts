@@ -7,7 +7,7 @@ async function createFormData(image: File, prompt: string) {
   formData.append("files", image);
   formData.append("prompt", prompt || "A hand-drawn sketch");
   formData.append("negativePrompt", "watermark, blurry, low-res");
-  formData.append("mode", "scribble");
+  formData.append("mode", "canny");
   formData.append("numberOfImages", "4");
 
   return formData;
