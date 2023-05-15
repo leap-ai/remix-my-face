@@ -1,6 +1,7 @@
 "use client";
 
 import { pollRemixStatus } from "@/lib/pollRemixStatus";
+import { resizeFile } from "@/lib/resizer";
 import { submitImage } from "@/lib/submitImage";
 import { RemixImage } from "@/types/remix.type";
 import { Button, Container, Heading, Text, VStack } from "@chakra-ui/react";
@@ -24,7 +25,17 @@ export default function Home() {
     setLoading(true);
     if (image) {
       // Submit
-      const remixId = await submitImage(image, "graffiti art style");
+      const resizedImage = await resizeFile(image);
+      // Check if resizedImage is a Blob
+      if (!(resizedImage instanceof Blob)) {
+        console.log(typeof resizedImage);
+        console.error("Error resizing image");
+        return;
+      } else {
+        console.log("Image resized", resizedImage);
+      }
+
+      const remixId = await submitImage(resizedImage, "graffiti art style");
       if (!remixId) return;
 
       // Poll
