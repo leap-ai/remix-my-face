@@ -5,6 +5,7 @@ import { submitImage } from "@/lib/submitImage";
 import { RemixImage } from "@/types/remix.type";
 import { Button, Container, Heading, Text, VStack } from "@chakra-ui/react";
 import { ChangeEvent, useState } from "react";
+import ImageResults from "./components/ImageResults";
 
 export default function Home() {
   const [image, setImage] = useState<File | null>(null);
@@ -47,6 +48,7 @@ export default function Home() {
           <Button onClick={handleSubmit} isLoading={loading || polling}>
             Submit
           </Button>
+          <ImageResults images={images} />
         </VStack>
       </Container>
     </>
