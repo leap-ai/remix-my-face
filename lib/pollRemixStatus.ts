@@ -34,9 +34,11 @@ async function checkStatus(
     const status = response.data.status;
 
     if (status === "finished" || status === "failed") {
+      console.log({ images: response.data.images });
       updateStatus(response.data.images);
       setIsPolling(false);
     } else if (status === "queued" || status === "processing") {
+      console.log("POLLING");
       setTimeout(
         () =>
           checkStatus(
@@ -70,6 +72,8 @@ export const pollRemixStatus = (
   updateStatus: (images: RemixImage[]) => void,
   setIsPolling: (isPolling: boolean) => void
 ): Promise<void> => {
+  setIsPolling(true);
+
   return checkStatus(
     { modelId, remixId, updateStatus, setIsPolling },
     POLL_INTERVAL_MS
