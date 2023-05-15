@@ -4,7 +4,14 @@ import { pollRemixStatus } from "@/lib/pollRemixStatus";
 import { resizeFile } from "@/lib/resizer";
 import { submitImage } from "@/lib/submitImage";
 import { RemixImage } from "@/types/remix.type";
-import { Button, Container, Heading, Text, VStack } from "@chakra-ui/react";
+import {
+  Button,
+  Container,
+  Heading,
+  Tag,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import { ChangeEvent, useState } from "react";
 import ImageResults from "./components/ImageResults";
 
@@ -54,6 +61,7 @@ export default function Home() {
       <Container maxWidth="container.lg" marginBottom={16}>
         <VStack align="center" py={8} gap={4}>
           <Heading size={"lg"}>Remix My Face</Heading>
+          <Tag textAlign={"center"}>v 0.01</Tag>
           <Text textAlign={"center"}>Take a selfie, get a custom avatar.</Text>
           <input type="file" accept="image/*" onChange={handleFileChange} />
           <Button onClick={handleSubmit} isLoading={loading || polling}>
