@@ -30,6 +30,7 @@ export default function Home() {
 
   const handleSubmit = async () => {
     setLoading(true);
+    console.log("SUBMIT", { image });
     if (image) {
       // Submit
       const resizedImage = await resizeFile(image);
