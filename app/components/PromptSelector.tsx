@@ -22,6 +22,11 @@ export const prompts = {
     "8k portrait of a person in juxtaposed collage art style",
   Silhouette: "8k portrait of a person in silhouette art style",
   Origami: "8k portrait of a person in origami-inspired art style",
+  Watercolor: "8k portrait of a person in watercolor art style",
+  "Floral Pattern": "8k portrait of a person in floral pattern art style",
+  Anime: "8k portrait of a person in anime art style",
+  "Fairy Tale": "8k portrait of a person in fairy tale-inspired art style",
+  Kawaii: "8k portrait of a person in kawaii art style",
 };
 
 export default function PromptSelector({
