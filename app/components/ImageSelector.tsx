@@ -14,6 +14,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { ChangeEvent, useRef } from "react";
+import { FaUndo } from "react-icons/fa";
 
 export default function ImageSelector({
   image,
@@ -41,11 +42,11 @@ export default function ImageSelector({
       <VStack w={"full"} bg={"blackAlpha.100"} rounded="md" p={2}>
         <Button
           onClick={() => setImage(null)}
-          leftIcon={<Icon as={FiUpload} />}
+          leftIcon={<Icon as={FaUndo} />}
           size={"sm"}
           w={"full"}
         >
-          Change Image
+          Start Over
         </Button>
         <Image
           src={URL.createObjectURL(image)}
