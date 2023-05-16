@@ -48,9 +48,10 @@ export default function PromptSelector({
     <Menu>
       <MenuButton
         as={Button}
-        colorScheme="blue"
+        colorScheme="teal"
         rightIcon={<ChevronDown />}
         variant={"outline"}
+        w={"full"}
       >
         {selectedPrompt.key || "Select Style"}
       </MenuButton>

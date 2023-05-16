@@ -4,17 +4,26 @@ import { pollRemixStatus } from "@/lib/pollRemixStatus";
 import { resizeFile } from "@/lib/resizer";
 import { submitImage } from "@/lib/submitImage";
 import { RemixImage } from "@/types/remix.type";
+import { FaMagic } from "react-icons/fa";
+
 import {
+  Box,
   Button,
   Container,
+  FormControl,
+  FormLabel,
+  HStack,
   Heading,
+  Icon,
+  Input,
   Tag,
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import ImageResults from "./components/ImageResults";
 import PromptSelector from "./components/PromptSelector";
+import ImageSelector from "./components/ImageSelector";
 
 export default function Home() {
   const [image, setImage] = useState<File | null>(null);
@@ -26,12 +35,6 @@ export default function Home() {
     key: "",
     value: "",
   });
-
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      setImage(e.target.files[0]);
-    }
-  };
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -64,20 +67,46 @@ export default function Home() {
 
   return (
     <>
-      <Container maxWidth="container.lg" marginBottom={16}>
+      <Container maxWidth="container.sm" marginBottom={16}>
         <VStack align="center" py={8} gap={4}>
-          <Heading size={"lg"}>Remix My Face</Heading>
-          <Tag textAlign={"center"}>v 0.03</Tag>
-          <Text textAlign={"center"}>Take a selfie, get a custom avatar.</Text>
-          <input type="file" accept="image/*" onChange={handleFileChange} />
-          <PromptSelector
-            selectedPrompt={prompt}
-            setSelectedPrompt={setPrompt}
-          />
-          <Button onClick={handleSubmit} isLoading={loading || polling}>
-            Submit
-          </Button>
+          <VStack>
+            <Heading size={"lg"}>Remix My Face</Heading>
+            <Tag textAlign={"center"}>v 0.03</Tag>
+            <Text textAlign={"center"}>
+              Take a selfie, get a custom avatar.
+            </Text>
+          </VStack>
+          {/* <input type="file" accept="image/*" onChange={handleFileChange} /> */}
+          <ImageSelector image={image} setImage={setImage} />
+          {image && (
+            <HStack w={"full"}>
+              <PromptSelector
+                selectedPrompt={prompt}
+                setSelectedPrompt={setPrompt}
+              />
+              <Button
+                onClick={handleSubmit}
+                isLoading={loading || polling}
+                rightIcon={<Icon as={FaMagic} />}
+                w={"full"}
+                colorScheme="teal"
+              >
+                Remix My Face
+              </Button>
+            </HStack>
+          )}
           <ImageResults images={images} />
+        </VStack>
+        <VStack bg={"blackAlpha.100"} p={4} rounded={"md"}>
+          <Text
+            textAlign={"center"}
+            fontSize={"xs"}
+            as={"a"}
+            href={"https://tryleap.ai/?ref=remixmyface.com"}
+            target={"_blank"}
+          >
+            {"Made with Leap API"}
+          </Text>
         </VStack>
       </Container>
     </>
