@@ -88,7 +88,7 @@ export default function Home() {
           h={"full"}
           w={"full"}
           style={{
-            minHeight: "calc(100vh - 10rem)",
+            minHeight: "calc(100vh - 16rem)",
           }}
         >
           <VStack>
