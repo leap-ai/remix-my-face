@@ -18,6 +18,7 @@ import {
   Image,
   Input,
   Spacer,
+  Stack,
   Tag,
   Text,
   VStack,
@@ -95,9 +96,14 @@ export default function Home() {
           {!image && (
             <>
               <VStack>
-                <Heading textAlign={"center"}>
-                  Take a selfie, get a custom avatar using AI.
-                </Heading>
+                <Stack gap={0}>
+                  <Heading textAlign={"center"} lineHeight={1}>
+                    Take a selfie,
+                  </Heading>
+                  <Heading textAlign={"center"} lineHeight={1}>
+                    get a custom avatar using AI.
+                  </Heading>
+                </Stack>
                 <Image
                   src={"/example-hq-1.png"}
                   alt="Example"
