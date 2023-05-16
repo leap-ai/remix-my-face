@@ -93,7 +93,7 @@ export default function Home() {
         >
           <VStack>
             <Heading textAlign={"center"}>
-              Take a selfie, get a custom avatar.
+              Take a selfie, get a custom avatar using AI.
             </Heading>
           </VStack>{" "}
           <ImageSelector image={image} setImage={setImage} />
