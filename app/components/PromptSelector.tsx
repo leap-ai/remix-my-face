@@ -10,19 +10,17 @@ import React, { useEffect } from "react";
 import { ChevronDown } from "@carbon/icons-react";
 
 export const prompts = {
-  "Anime Style": "a person's selfie in an anime art style",
-  Minimalist: "a person's selfie in a minimalist art style",
-  "Pixel Art": "a person's selfie in a pixel art style",
-  Impressionist: "a person's selfie in an impressionist art style",
-  "Art Deco": "a person's selfie in an art deco style",
-  "Pop Art": "a person's selfie in a pop art style",
-  Gothic: "a person's selfie in a gothic art style",
-  Pointillism: "a person's selfie in a pointillism art style",
-  Victorian: "a person's selfie in a Victorian art style",
-  Abstract: "a person's selfie in an abstract art style",
-  "Steam Punk": "a person's selfie in a steam punk art style",
-  "African Tribal": "a person's selfie in an African tribal art style",
-  // Add more prompts here
+  Cyberpunk: "a person's selfie in a cyberpunk art style",
+  "Neon Noir": "a person's selfie in a neon noir art style",
+  "Starry Night":
+    "a person's selfie in a Vincent van Gogh's Starry Night-inspired style",
+  "Paper Cut-Out": "a person's selfie in a paper cut-out art style",
+  "Glitch Art": "a person's selfie in a glitch art style",
+  "Low Poly": "a person's selfie in a low poly art style",
+  "Lego Style": "a person's selfie in a Lego-inspired art style",
+  "Juxtaposed Collage": "a person's selfie in a juxtaposed collage art style",
+  Silhouette: "a person's selfie in a silhouette art style",
+  Origami: "a person's selfie in an origami-inspired art style",
 };
 
 export default function PromptSelector({
