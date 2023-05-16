@@ -1,7 +1,7 @@
 # DrawIt - Sketch to AI-Generated Image
 
-![DrawIt App Banner](https://www.drawit.art/opengraph-image.jpg)
-![DrawIt App Interface](https://www.drawit.art/demo-screenshot.jpg)
+![DrawIt App Banner](https://www.remixmyface.com/opengraph-image.jpg)
+![DrawIt App Interface](https://www.remixmyface.com/demo-screenshot.jpg)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/leap-api/draw-it.git)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ![ESLint](https://img.shields.io/badge/code_style-ESLint-5ed9c7.svg)

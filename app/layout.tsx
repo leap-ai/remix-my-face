@@ -1,6 +1,8 @@
+import { Spacer, VStack } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
-import { Providers } from "./providers";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import { Providers } from "./providers";
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 

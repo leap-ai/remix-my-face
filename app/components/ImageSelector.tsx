@@ -11,6 +11,7 @@ import {
   Image,
   Input,
   Stack,
+  VStack,
 } from "@chakra-ui/react";
 import { ChangeEvent, useRef } from "react";
 
@@ -37,23 +38,26 @@ export default function ImageSelector({
 
   if (image) {
     return (
-      <Stack w={"full"}>
+      <VStack w={"full"} bg={"blackAlpha.100"} rounded="md" p={2}>
         <Button
           onClick={() => setImage(null)}
           leftIcon={<Icon as={FiUpload} />}
+          size={"sm"}
+          w={"full"}
         >
           Change Image
         </Button>
         <Image
           src={URL.createObjectURL(image)}
           alt="Selected Image"
-          width="100%"
-          height="auto"
+          //   width="100%"
+          //   height="auto"
           objectFit={"contain"}
           maxH={500}
-          rounded={8}
+          maxW={500}
+          rounded={"md"}
         />
-      </Stack>
+      </VStack>
     );
   }
 
