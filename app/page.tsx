@@ -67,7 +67,7 @@ export default function Home() {
       <Container maxWidth="container.lg" marginBottom={16}>
         <VStack align="center" py={8} gap={4}>
           <Heading size={"lg"}>Remix My Face</Heading>
-          <Tag textAlign={"center"}>v 0.01</Tag>
+          <Tag textAlign={"center"}>v 0.02</Tag>
           <Text textAlign={"center"}>Take a selfie, get a custom avatar.</Text>
           <input type="file" accept="image/*" onChange={handleFileChange} />
           <PromptSelector
