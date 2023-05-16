@@ -47,6 +47,7 @@ export default function Home() {
 
   const handleSubmit = async () => {
     setLoading(true);
+    setResults([]);
     console.log("SUBMIT", { image });
     if (image) {
       // Submit
@@ -96,7 +97,7 @@ export default function Home() {
             </Heading>
           </VStack>{" "}
           <ImageSelector image={image} setImage={setImage} />
-          {image && !results.length && (
+          {image && (
             <HStack w={"full"}>
               <PromptSelector
                 selectedPrompt={prompt}
