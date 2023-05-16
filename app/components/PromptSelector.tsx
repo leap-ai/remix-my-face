@@ -26,6 +26,8 @@ export const prompts = {
   Anime: "8k portrait in anime art style",
   "Fairy Tale": "8k portrait in fairy tale-inspired art style",
   Kawaii: "8k portrait in kawaii art style",
+  Disney: "8k portrait in modern disney style",
+  "Marvel Comic": "8k portrait in marvel comic art style",
 };
 
 export default function PromptSelector({

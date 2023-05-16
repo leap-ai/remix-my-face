@@ -15,6 +15,7 @@ import {
   HStack,
   Heading,
   Icon,
+  Image,
   Input,
   Spacer,
   Tag,
@@ -91,11 +92,24 @@ export default function Home() {
             minHeight: "calc(60vh)",
           }}
         >
-          <VStack>
-            <Heading textAlign={"center"}>
-              Take a selfie, get a custom avatar using AI.
-            </Heading>
-          </VStack>{" "}
+          {!image && (
+            <>
+              <VStack>
+                <Heading textAlign={"center"}>
+                  Take a selfie, get a custom avatar using AI.
+                </Heading>
+                <Image
+                  src={"/example-hq-1.png"}
+                  alt="Example"
+                  width={"full"}
+                  height="auto"
+                  objectFit={"contain"}
+                  maxH={250}
+                  maxW={500}
+                />
+              </VStack>
+            </>
+          )}
           <ImageSelector image={image} setImage={setImage} />
           {image && (
             <HStack w={"full"}>

@@ -24,7 +24,7 @@ export default function Navbar() {
     >
       <Heading size={"md"}>Remix My Face</Heading>
       <Spacer />
-      <Tag>v0.03</Tag>
+      <Tag>v0.04</Tag>
       <IconButton
         aria-label={"Toggle Dark Mode"}
         icon={colorMode === "dark" ? <FaSun /> : <FaMoon />}
