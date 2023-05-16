@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { ChangeEvent, useState } from "react";
 import ImageResults from "./components/ImageResults";
+import PromptSelector from "./components/PromptSelector";
 
 export default function Home() {
   const [image, setImage] = useState<File | null>(null);
@@ -21,6 +22,10 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [polling, setPolling] = useState(false);
   const [images, setImages] = useState<RemixImage[]>([]);
+  const [prompt, setPrompt] = useState({
+    key: "",
+    value: "",
+  });
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -65,6 +70,10 @@ export default function Home() {
           <Tag textAlign={"center"}>v 0.01</Tag>
           <Text textAlign={"center"}>Take a selfie, get a custom avatar.</Text>
           <input type="file" accept="image/*" onChange={handleFileChange} />
+          <PromptSelector
+            selectedPrompt={prompt}
+            setSelectedPrompt={setPrompt}
+          />
           <Button onClick={handleSubmit} isLoading={loading || polling}>
             Submit
           </Button>

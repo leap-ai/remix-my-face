@@ -10,18 +10,18 @@ import React, { useEffect } from "react";
 import { ChevronDown } from "@carbon/icons-react";
 
 export const prompts = {
-  "Animal: Portrait": "8k portrait of an animal",
-  "Animal: Wildlife":
-    "wildlife scene featuring animals in their natural habitat",
-  "Architecture: Modern": "rendering of modern architecture",
-  "Architecture: Historical": "illustration of ancient architectural marvels",
-  "Art Styles: Cubism": "cubist interpretation of a cityscape",
-  "Art Styles: Surrealism": "surreal dreamscape with fantastical elements",
-  "Art Styles: Street Art": "colorful street art inspired by urban culture",
-  "Nature: Landscape": "panorama of a mountain landscape",
-  "Nature: Waterscape": "serene waterscape with boats and reflections",
-  "Technology: Futuristic": "illustration of futuristic transportation",
-  "Technology: Vintage": "depiction of early 20th century inventions",
+  "Anime Style": "a person's selfie in an anime art style",
+  Minimalist: "a person's selfie in a minimalist art style",
+  "Pixel Art": "a person's selfie in a pixel art style",
+  Impressionist: "a person's selfie in an impressionist art style",
+  "Art Deco": "a person's selfie in an art deco style",
+  "Pop Art": "a person's selfie in a pop art style",
+  Gothic: "a person's selfie in a gothic art style",
+  Pointillism: "a person's selfie in a pointillism art style",
+  Victorian: "a person's selfie in a Victorian art style",
+  Abstract: "a person's selfie in an abstract art style",
+  "Steam Punk": "a person's selfie in a steam punk art style",
+  "African Tribal": "a person's selfie in an African tribal art style",
   // Add more prompts here
 };
 
