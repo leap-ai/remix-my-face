@@ -48,7 +48,7 @@ export default function Home() {
         console.log("Image resized", resizedImage);
       }
 
-      const remixId = await submitImage(resizedImage, "graffiti art style");
+      const remixId = await submitImage(resizedImage, prompt.value);
       if (!remixId) return;
 
       // Poll
