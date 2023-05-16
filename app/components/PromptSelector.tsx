@@ -10,17 +10,18 @@ import React, { useEffect } from "react";
 import { ChevronDown } from "@carbon/icons-react";
 
 export const prompts = {
-  Cyberpunk: "a person's selfie in a cyberpunk art style",
-  "Neon Noir": "a person's selfie in a neon noir art style",
+  Cyberpunk: "8k portrait of a person in cyberpunk art style",
+  "Neon Noir": "8k portrait of a person in neon noir art style",
   "Starry Night":
-    "a person's selfie in a Vincent van Gogh's Starry Night-inspired style",
-  "Paper Cut-Out": "a person's selfie in a paper cut-out art style",
-  "Glitch Art": "a person's selfie in a glitch art style",
-  "Low Poly": "a person's selfie in a low poly art style",
-  "Lego Style": "a person's selfie in a Lego-inspired art style",
-  "Juxtaposed Collage": "a person's selfie in a juxtaposed collage art style",
-  Silhouette: "a person's selfie in a silhouette art style",
-  Origami: "a person's selfie in an origami-inspired art style",
+    "8k portrait of a person in Vincent van Gogh's Starry Night-inspired style",
+  "Paper Cut-Out": "8k portrait of a person in paper cut-out art style",
+  "Glitch Art": "8k portrait of a person in glitch art style",
+  "Low Poly": "8k portrait of a person in low poly art style",
+  "Lego Style": "8k portrait of a person in Lego-inspired art style",
+  "Juxtaposed Collage":
+    "8k portrait of a person in juxtaposed collage art style",
+  Silhouette: "8k portrait of a person in silhouette art style",
+  Origami: "8k portrait of a person in origami-inspired art style",
 };
 
 export default function PromptSelector({
