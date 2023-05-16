@@ -26,6 +26,7 @@ import ImageResults from "./components/ImageResults";
 import PromptSelector from "./components/PromptSelector";
 import ImageSelector from "./components/ImageSelector";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
   const [image, setImage] = useState<File | null>(null);
@@ -74,15 +75,25 @@ export default function Home() {
   };
 
   return (
-    <VStack h={"100vh"}>
-      <Container maxWidth="container.sm">
-        <VStack align="center" py={8} gap={4}>
+    <VStack>
+      <Navbar />
+      <Container maxWidth="container.sm" h={"full"}>
+        <VStack
+          align="center"
+          py={8}
+          gap={4}
+          justifyContent={"center"}
+          alignItems={"center"}
+          h={"full"}
+          w={"full"}
+          style={{
+            minHeight: "calc(100vh - 10rem)",
+          }}
+        >
           <VStack>
-            <Heading size={"lg"}>Remix My Face</Heading>
-            <Tag textAlign={"center"}>v 0.03</Tag>
-            <Text textAlign={"center"}>
+            <Heading textAlign={"center"}>
               Take a selfie, get a custom avatar.
-            </Text>
+            </Heading>
           </VStack>{" "}
           <ImageSelector image={image} setImage={setImage} />
           {image && !results.length && (
@@ -98,14 +109,13 @@ export default function Home() {
                 w={"full"}
                 colorScheme="teal"
               >
-                Remix My Face
+                Remix
               </Button>
             </HStack>
           )}
           <ImageResults images={results} />
         </VStack>
       </Container>
-      <Spacer />
       <Footer />
     </VStack>
   );

@@ -17,8 +17,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html
+      lang="en"
+      style={{
+        minHeight: "100vh",
+      }}
+    >
+      <body
+        className={inter.className}
+        style={{
+          height: "100%",
+        }}
+      >
         <Providers>{children}</Providers>
       </body>
       <GoogleAnalytics />

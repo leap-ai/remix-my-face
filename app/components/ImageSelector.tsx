@@ -55,6 +55,7 @@ export default function ImageSelector({
           objectFit={"contain"}
           maxH={500}
           maxW={500}
+          w={"full"}
           rounded={"md"}
         />
       </VStack>
