@@ -1,4 +1,5 @@
 import {
+  Button,
   HStack,
   Heading,
   IconButton,
@@ -7,7 +8,7 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import React from "react";
-import { FaMoon, FaSun } from "react-icons/fa";
+import { FaGithub, FaMoon, FaSun } from "react-icons/fa";
 
 export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -27,7 +28,15 @@ export default function Navbar() {
         Remix My Face
       </Heading>
       <Spacer />
-      <Tag>v0.05</Tag>
+      <Button
+        as="a"
+        href={""}
+        target={"_blank"}
+        size={"xs"}
+        leftIcon={<FaGithub />}
+      >
+        Fork on GitHub
+      </Button>
       <IconButton
         aria-label={"Toggle Dark Mode"}
         icon={colorMode === "dark" ? <FaSun /> : <FaMoon />}
