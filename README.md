@@ -1,39 +1,47 @@
-# DrawIt - Sketch to AI-Generated Image
+# Remix My Face - AI-powered Selfie Transformations
 
-![DrawIt App Banner](https://www.remixmyface.com/opengraph-image.jpg)
-![DrawIt App Interface](https://www.remixmyface.com/demo-screenshot.jpg)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/leap-api/draw-it.git)
+![Remix My Face App Banner](https://www.remixmyface.com/opengraph-image.jpg)
+![Remix My Face App Interface](https://www.remixmyface.com/demo-screenshot.jpg)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/leap-api/remix-my-face.git)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ![ESLint](https://img.shields.io/badge/code_style-ESLint-5ed9c7.svg)
 [![Next.js](https://img.shields.io/badge/built_with-Next.js-0070f3)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-blue)](https://www.typescriptlang.org/)
 
-DrawIt is a web application designed to convert user sketches into AI-generated images. It utilizes Next.js 13, Chakra UI, and the Leap Remix API to provide this functionality.
+Welcome to Remix My Face, an engaging web app that invites you to discover your selfies in a new light. Transform your photos into a variety of captivating styles such as anime, cartoon, or sketch with just a few clicks. Built on Next.js 13 and Chakra UI, Remix My Face harnesses the power of the Leap Remix API to deliver a delightful, user-friendly experience.
 
-## Live Demo
+## Try It Live
 
-You can try out DrawIt with the live demo at [drawit.art](https://drawit.art/).
+Curious to see how it works? Explore the full potential of Remix My Face with our live demo at [remixmyface.com](https://remixmyface.com/).
 
-## Leap API
+## Leap API: The Brain Behind the Magic
 
-Leap is an AI platform that offers a wide range of AI APIs, including the Remix API, which is used in the DrawIt app. To get started, sign up for an API key at [Leap](https://tryleap.ai/). After registering, access the Leap Dashboard and retrieve your API key.
+At the core of Remix My Face lies the Leap platform, an extensive suite of AI APIs that provide the creative fuel for our transformative tool. The Leap Remix API empowers users to reimagine their photos in playful, artistic ways. Ready to dive in? Grab your API key by signing up at [Leap](https://tryleap.ai/) and embark on a journey of endless possibilities.
 
-To find out more about the Leap Remix API, check out the [Leap Remix API reference](https://docs.tryleap.ai/reference/controlcontroller_create).
+Dive deeper into the Leap Remix API by browsing the [Leap Remix API reference](https://docs.tryleap.ai/reference/controlcontroller_create).
+
+## Learn, Modify, and Innovate with AI
+
+Remix My Face serves as an excellent example of how you can build powerful, real-world AI applications by leveraging state-of-the-art models, techniques and methods like Stable Diffusion, ControlNet. The app utilizes various diffusion models and provides an alternative to Dreambooth to create seamless and captivating transformations. As a developer, this project offers you the perfect opportunity to explore and learn from the code, modify it to suit your needs, or even draw inspiration to develop something entirely new.
+
+## Unleash Your Creativity
+
+With Remix My Face, your selfies become a canvas for imagination. Tap into our innovative image generation technology to craft a one-of-a-kind snapshot that reflects your unique personality and style.
 
 ## Getting Started
 
-Follow these steps to set up DrawIt in your local development environment:
+To create your own selfie playground, follow these easy steps:
 
 1. Clone the repository:
 
 ```
-git clone https://github.com/leap-api/draw-it.git
+git clone https://github.com/leap-api/remix-my-face.git
 ```
 
-2. Move into the `draw-it` directory:
+2. Enter the `remix-my-face` directory:
 
 ```
-cd draw-it
+cd remix-my-face
 ```
 
 3. Install dependencies:
@@ -50,13 +58,13 @@ cd draw-it
    yarn
    ```
 
-4. Create a `.env` file in the root directory and replace `your_api_key` with your actual Leap API key:
+4. Create a `.env` file in the root directory and fill in `your_api_key` with your Leap API key:
 
 ```
 LEAP_API_KEY=your_api_key
 ```
 
-5. Run the development server:
+5. Start the development server:
 
    For npm:
 
@@ -70,23 +78,19 @@ LEAP_API_KEY=your_api_key
    yarn dev
    ```
 
-6. Open your browser and visit `http://localhost:3000` to see the running app.
+6. Visit `http://localhost:3000` in your browser to see the running app.
 
-For additional guidance and instructions, refer to [the full guide](https://www.tryleap.ai/docs/how-to-build-a-sketch-to-image-app-with-leap-remix).
-
-## Note
-
-DrawIt uses Next.js 13 for its app routing. If you would like to use a prior version of Next.js, please be aware that code modifications may be required.
+Need a helping hand? Check out our comprehensive guide: [Remix My Face Setup and Tutorial](https://www.tryleap.ai/docs/remix-my-face-setup-and-guide).
 
 ## Contributing
 
-We welcome contributions and pull requests. For major changes, please open an issue first to discuss the proposed updates.
+We welcome collaboration and appreciate your contribution to Remix My Face. If you have suggestions for improvement or significant changes in mind, feel free to open an issue and let's discuss!
 
-## Resources
+## Resources and Support
 
 - Discord Community: [Leap Discord](https://discord.gg/NCAKTUayPK)
 - Help Email: help@tryleap.ai
 
 ## License
 
-The DrawIt app is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
+Remix My Face is released under the [MIT License](https://choosealicense.com/licenses/mit/).
