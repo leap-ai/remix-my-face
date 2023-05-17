@@ -28,7 +28,7 @@ export default function Navbar() {
       <Spacer />
       <Button
         as="a"
-        href={""}
+        href={"https://github.com/leap-api/remix-my-face"}
         target={"_blank"}
         size={"xs"}
         leftIcon={<FaGithub />}
