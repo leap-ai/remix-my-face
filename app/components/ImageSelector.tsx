@@ -1,42 +1,39 @@
-"use client";
-
-import { FiUpload } from "react-icons/fi";
-
+// Import necessary components and icons from Chakra UI and React-icons
 import {
-  Box,
   Button,
   FormControl,
-  FormLabel,
   Icon,
   Image,
   Input,
-  Stack,
   VStack,
 } from "@chakra-ui/react";
 import { ChangeEvent, useRef } from "react";
 import { FaUndo } from "react-icons/fa";
+import { FiUpload } from "react-icons/fi";
 
-export default function ImageSelector({
-  image,
-  setImage,
-}: {
+interface ImageSelectorProps {
   image: File | null;
   setImage: (image: File | null) => void;
-}) {
+}
+
+// Create a new functional component called ImageSelector
+const ImageSelector = ({ image, setImage }: ImageSelectorProps) => {
+  // Create a reference to the hidden file input element
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Handle the button click event to trigger the actual file input click
   const handleButtonClick = () => {
-    if (fileInputRef.current) {
-      fileInputRef.current.click();
-    }
+    fileInputRef.current?.click();
   };
 
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      setImage(e.target.files[0]);
-    }
+  // Handle the file input change event and update the image state
+  const handleFileChange = ({
+    target: { files },
+  }: ChangeEvent<HTMLInputElement>) => {
+    setImage(files ? files[0] : null);
   };
 
+  // If an image is already selected, show a button to start over and the selected image
   if (image) {
     return (
       <VStack w={"full"} bg={"blackAlpha.100"} rounded="md" p={2}>
@@ -51,8 +48,6 @@ export default function ImageSelector({
         <Image
           src={URL.createObjectURL(image)}
           alt="Selected Image"
-          //   width="100%"
-          //   height="auto"
           objectFit={"contain"}
           maxH={500}
           maxW={500}
@@ -63,24 +58,26 @@ export default function ImageSelector({
     );
   }
 
+  // If no image is selected, show a button to upload or take a selfie
   return (
     <FormControl id="file-upload" mt={6}>
-      <Stack>
-        <Input
-          type="file"
-          onChange={handleFileChange}
-          display="none"
-          ref={fileInputRef}
-        />
-        <Button
-          leftIcon={<Icon as={FiUpload} />}
-          colorScheme="teal"
-          variant="solid"
-          onClick={handleButtonClick}
-        >
-          Upload or Take Selfie
-        </Button>
-      </Stack>
+      <Input
+        type="file"
+        onChange={handleFileChange}
+        display="none"
+        ref={fileInputRef}
+      />
+      <Button
+        leftIcon={<Icon as={FiUpload} />}
+        colorScheme="teal"
+        variant="solid"
+        onClick={handleButtonClick}
+        w={"full"}
+      >
+        Upload or Take Selfie
+      </Button>
     </FormControl>
   );
-}
+};
+
+export default ImageSelector;

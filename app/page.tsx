@@ -7,72 +7,60 @@ import { RemixImage } from "@/types/remix.type";
 import { FaMagic } from "react-icons/fa";
 
 import {
-  Box,
   Button,
   Container,
-  FormControl,
-  FormLabel,
   HStack,
   Heading,
   Icon,
   Image,
-  Input,
-  Spacer,
   Stack,
-  Tag,
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { ChangeEvent, useEffect, useRef, useState } from "react";
-import ImageResultsList from "./components/ImageResultsList";
-import PromptSelector from "./components/PromptSelector";
-import ImageSelector from "./components/ImageSelector";
+import { useEffect, useState } from "react";
 import Footer from "./components/Footer";
+import ImageResultsList from "./components/ImageResultsList";
+import ImageSelector from "./components/ImageSelector";
 import Navbar from "./components/Navbar";
+import PromptSelector from "./components/PromptSelector";
 
+// Home component
 export default function Home() {
+  // Define states
   const [image, setImage] = useState<File | null>(null);
-  // Loader
   const [loading, setLoading] = useState(false);
   const [polling, setPolling] = useState(false);
-  const [results, setResults] = useState<RemixImage[]>([
-    // {
-    //   id: "1",
-    //   uri: "http://localhost:3000/example-hq-1.png",
-    //   createdAt: new Date().toDateString(),
-    // },
-  ]);
+  const [results, setResults] = useState<RemixImage[]>([]);
   const [prompt, setPrompt] = useState({
     key: "",
     value: "",
   });
 
+  // Reset results if image is removed
   useEffect(() => {
     if (!image) {
       setResults([]);
     }
   }, [image]);
 
+  // Handle form submission
   const handleSubmit = async () => {
     setLoading(true);
     setResults([]);
-    console.log("SUBMIT", { image });
+
+    // Submit if image is selected
     if (image) {
-      // Submit
       const resizedImage = await resizeFile(image);
+
       // Check if resizedImage is a Blob
       if (!(resizedImage instanceof Blob)) {
-        console.log(typeof resizedImage);
-        console.error("Error resizing image");
         return;
-      } else {
-        console.log("Image resized", resizedImage);
       }
 
       const remixId = await submitImage(resizedImage, prompt.value);
       if (!remixId) return;
 
-      // Poll
+      // Poll and get the result
       await pollRemixStatus(
         "1e7737d7-545e-469f-857f-e4b46eaa151d",
         remixId,
@@ -83,19 +71,21 @@ export default function Home() {
     setLoading(false);
   };
 
+  // Render UI for the component
   return (
     <VStack>
       <Navbar />
       <Container maxWidth="container.sm" h={"full"}>
         <VStack
           align="center"
-          py={12}
+          pt={12}
           gap={4}
           justifyContent={"center"}
           alignItems={"center"}
           h={"full"}
           w={"full"}
         >
+          {/* Rendering header and example image */}
           {!image && (
             <>
               <VStack>
@@ -119,7 +109,10 @@ export default function Home() {
               </VStack>
             </>
           )}
+          {/* Rendering image selector */}
           <ImageSelector image={image} setImage={setImage} />
+
+          {/* Rendering prompt selector and submit button */}
           {image && (
             <HStack w={"full"}>
               <PromptSelector
@@ -137,11 +130,13 @@ export default function Home() {
               </Button>
             </HStack>
           )}
+          {/* Rendering loading text if any */}
           {(loading || polling) && (
             <Text fontSize={"0.7rem"}>
               Generating can take about 30 seconds. Hang tight!
             </Text>
           )}
+          {/* Rendering list of generated images */}
           <ImageResultsList images={results} />
         </VStack>
       </Container>

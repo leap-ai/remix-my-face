@@ -1,9 +1,7 @@
 import axios from "axios";
 import { RemixImage, RemixResponse } from "@/types/remix.type";
 
-/**
- * Interface for the properties required to poll the remix status.
- */
+// Properties required for polling remix status
 interface PollRemixStatusProps {
   modelId: string;
   remixId: string;
@@ -11,34 +9,31 @@ interface PollRemixStatusProps {
   setIsPolling: (isPolling: boolean) => void;
 }
 
-// Polling interval in milliseconds.
+// Define the polling interval in milliseconds
 const POLL_INTERVAL_MS = 3000;
 
-/**
- * Checks the status of a remix, updating the status with new images,
- * and recursively calls itself until the status is finished or failed.
- *
- * @param {PollRemixStatusProps} props - An object containing the required properties for polling.
- * @param {number} pollInterval - The interval at which the poll should be executed in milliseconds.
- * @returns {Promise<void>}
- */
+// The checkStatus function polls the remix status, updates images and recursively calls itself
+// until the status is either "finished" or "failed"
 async function checkStatus(
   { modelId, remixId, updateStatus, setIsPolling }: PollRemixStatusProps,
   pollInterval: number
 ): Promise<void> {
   try {
+    // Send an API request to the server
     const response = await axios.get<RemixResponse>(
       `/api/check-remix-status?modelId=${modelId}&remixId=${remixId}`
     );
 
+    // Extract the remix status
     const status = response.data.status;
 
+    // If the status is "finished" or "failed", update images and stop polling
     if (status === "finished" || status === "failed") {
-      console.log({ images: response.data.images });
       updateStatus(response.data.images);
       setIsPolling(false);
-    } else if (status === "queued" || status === "processing") {
-      console.log("POLLING");
+    }
+    // Keep polling if the status is "queued" or "processing"
+    else if (status === "queued" || status === "processing") {
       setTimeout(
         () =>
           checkStatus(
@@ -47,8 +42,10 @@ async function checkStatus(
           ),
         pollInterval
       );
-    } else {
-      console.error("Unexpected status value");
+    }
+    // Throw an error if the received status is unexpected
+    else {
+      throw new Error("Unexpected status value");
     }
   } catch (error: unknown) {
     if (error instanceof Error) {
@@ -57,15 +54,8 @@ async function checkStatus(
   }
 }
 
-/**
- * Starts the polling process to check the status of a remix, updating the status with new images.
- *
- * @export
- * @param {string} modelId - The ID of the model being used.
- * @param {string} remixId - The ID of the remix being processed.
- * @param {(images: RemixImage[]) => void} updateStatus - A callback function to update the status with new images.
- * @returns {Promise<void>}
- */
+// The pollRemixStatus function starts the polling process by setting the isPolling state to true
+// and calling the checkStatus function for the first time
 export const pollRemixStatus = (
   modelId: string,
   remixId: string,

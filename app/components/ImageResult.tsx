@@ -1,34 +1,44 @@
+// Import necessary Chakra UI components and hooks
 import {
   Box,
   Button,
-  Text,
-  Grid,
+  HStack,
   IconButton,
   Image,
+  Link,
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
   ModalHeader,
   ModalOverlay,
+  Text,
   VStack,
-  Link,
-  HStack,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { FaFacebook, FaTwitter, FaLinkedin, FaPinterest } from "react-icons/fa";
+// Import social media icons
+import { FaFacebook, FaLinkedin, FaPinterest, FaTwitter } from "react-icons/fa";
 
-export default function ImageResult({ src }: { src: string }) {
+interface ImageResultProps {
+  src: string;
+}
+
+// ImageResult component expects a single prop: "src"
+export default function ImageResult({ src }: ImageResultProps) {
+  // State for modal visibility
   const [isOpen, setIsOpen] = useState(false);
 
+  // Functions to open and close the modal
   const onOpen = () => setIsOpen(true);
   const onClose = () => setIsOpen(false);
 
+  // Message and encodedMessage used to share on social media platforms
   const message =
     "Check out this cool website by @leap_api where you can upload a selfie and create custom avatars https://remixmyface.com";
   const encodedMessage = encodeURIComponent(message);
   const downloadFileName = "custom_avatar.png";
 
+  // URLs for sharing to different social media platforms
   const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodedMessage}`;
   const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?quote=${encodedMessage}`;
   const linkedinShareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=https://tryleap.ai&title=${encodedMessage}`;
@@ -36,6 +46,7 @@ export default function ImageResult({ src }: { src: string }) {
 
   return (
     <>
+      {/* Trigger for opening modal */}
       <Box
         onClick={onOpen}
         _hover={{
@@ -43,6 +54,7 @@ export default function ImageResult({ src }: { src: string }) {
           transition: "all 0.2s ease-in-out",
         }}
       >
+        {/* Image thumbnail */}
         <Image
           src={src}
           alt={src}
@@ -52,6 +64,7 @@ export default function ImageResult({ src }: { src: string }) {
         />
       </Box>
 
+      {/* Modal for showing image, download, and share options */}
       <Modal isOpen={isOpen} onClose={onClose} size="xl">
         <ModalOverlay />
         <ModalContent>
@@ -59,12 +72,17 @@ export default function ImageResult({ src }: { src: string }) {
           <ModalCloseButton />
           <ModalBody>
             <VStack gap={4} py={4}>
+              {/* Full-size image */}
               <Image src={src} alt={src} objectFit="contain" />
+              {/* Share prompt */}
               <Text>Share this website with your friends!</Text>
+              {/* Container for buttons */}
               <HStack>
+                {/* Download button */}
                 <Button as="a" href={src} download={downloadFileName}>
                   Download
                 </Button>
+                {/* Social media buttons */}
                 <IconButton
                   as={Link}
                   href={twitterShareUrl}

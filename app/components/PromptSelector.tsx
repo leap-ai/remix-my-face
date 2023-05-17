@@ -1,13 +1,6 @@
-import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Button,
-  Box,
-} from "@chakra-ui/react";
-import React, { useEffect } from "react";
 import { ChevronDown } from "@carbon/icons-react";
+import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import { useEffect } from "react";
 
 export const prompts = {
   Cyberpunk: "8k portrait in cyberpunk art style",
@@ -30,6 +23,7 @@ export const prompts = {
   "Marvel Comic": "8k portrait in marvel comic art style",
 };
 
+// PromptSelector component allows users to choose an art style
 export default function PromptSelector({
   selectedPrompt,
   setSelectedPrompt,
@@ -37,11 +31,13 @@ export default function PromptSelector({
   selectedPrompt: { key: string; value: string };
   setSelectedPrompt: (prompt: { key: string; value: string }) => void;
 }) {
+  // Function to get a random art style from prompts
   const getRandomPrompt = () => {
     const promptsEntries = Object.entries(prompts);
     return promptsEntries[Math.floor(Math.random() * promptsEntries.length)];
   };
 
+  // Set an initial random art style when the component is first rendered
   useEffect(() => {
     const randomPrompt = getRandomPrompt();
     setSelectedPrompt({
@@ -51,7 +47,9 @@ export default function PromptSelector({
   }, [setSelectedPrompt]);
 
   return (
+    // Chakra UI Menu component - creates a dropdown menu
     <Menu>
+      {/* MenuButton displays the selected art style, clicking it opens the menu */}
       <MenuButton
         as={Button}
         colorScheme="teal"
@@ -61,9 +59,16 @@ export default function PromptSelector({
       >
         {selectedPrompt.key || "Select Style"}
       </MenuButton>
+
+      {/* MenuList contains MenuItem(s) with available art styles */}
       <MenuList>
+        {/* Map over prompts and generate MenuItem(s) for each art style */}
         {Object.entries(prompts).map(([key, value]) => (
-          <MenuItem key={key} onClick={() => setSelectedPrompt({ key, value })}>
+          <MenuItem
+            key={key}
+            // Clicking a MenuItem sets the selectedPrompt to the chosen art style
+            onClick={() => setSelectedPrompt({ key, value })}
+          >
             {key}
           </MenuItem>
         ))}

@@ -4,10 +4,8 @@ import {
   Heading,
   IconButton,
   Spacer,
-  Tag,
   useColorMode,
 } from "@chakra-ui/react";
-import React from "react";
 import { FaGithub, FaMoon, FaSun } from "react-icons/fa";
 
 export default function Navbar() {
