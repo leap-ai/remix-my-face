@@ -80,7 +80,7 @@ LEAP_API_KEY=your_api_key
 
 6. Visit `http://localhost:3000` in your browser to see the running app.
 
-Need a helping hand? Check out our comprehensive guide: [Remix My Face Setup and Tutorial](https://www.tryleap.ai/docs/remix-my-face-setup-and-guide).
+Need a helping hand? Check out our comprehensive guide: [Remix My Face Setup and Tutorial](https://www.tryleap.ai/docs/build-remix-my-face).
 
 ## Contributing
 
