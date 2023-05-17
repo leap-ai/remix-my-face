@@ -1,6 +1,7 @@
 "use client";
 
-import { Container, Text, VStack } from "@chakra-ui/react";
+import { Button, Container, Text, VStack } from "@chakra-ui/react";
+import { FaGithub } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -13,6 +14,15 @@ export default function Footer() {
         >
           {"Made with Leap API"}
         </Text>
+        <Button
+          as="a"
+          href={""}
+          target={"_blank"}
+          size={"xs"}
+          leftIcon={<FaGithub />}
+        >
+          Fork on GitHub
+        </Button>
       </VStack>
     </Container>
   );
