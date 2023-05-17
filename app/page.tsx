@@ -137,6 +137,11 @@ export default function Home() {
               </Button>
             </HStack>
           )}
+          {(loading || polling) && (
+            <Text fontSize={"0.7rem"}>
+              Generating can take about 30 seconds. Hang tight!
+            </Text>
+          )}
           <ImageResultsList images={results} />
         </VStack>
       </Container>
