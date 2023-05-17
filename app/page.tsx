@@ -24,7 +24,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
-import ImageResults from "./components/ImageResults";
+import ImageResultsList from "./components/ImageResultsList";
 import PromptSelector from "./components/PromptSelector";
 import ImageSelector from "./components/ImageSelector";
 import Footer from "./components/Footer";
@@ -35,7 +35,13 @@ export default function Home() {
   // Loader
   const [loading, setLoading] = useState(false);
   const [polling, setPolling] = useState(false);
-  const [results, setResults] = useState<RemixImage[]>([]);
+  const [results, setResults] = useState<RemixImage[]>([
+    // {
+    //   id: "1",
+    //   uri: "http://localhost:3000/example-hq-1.png",
+    //   createdAt: new Date().toDateString(),
+    // },
+  ]);
   const [prompt, setPrompt] = useState({
     key: "",
     value: "",
@@ -83,15 +89,12 @@ export default function Home() {
       <Container maxWidth="container.sm" h={"full"}>
         <VStack
           align="center"
-          py={8}
+          py={12}
           gap={4}
           justifyContent={"center"}
           alignItems={"center"}
           h={"full"}
           w={"full"}
-          style={{
-            minHeight: "calc(60vh)",
-          }}
         >
           {!image && (
             <>
@@ -134,7 +137,7 @@ export default function Home() {
               </Button>
             </HStack>
           )}
-          <ImageResults images={results} />
+          <ImageResultsList images={results} />
         </VStack>
       </Container>
       <Footer />

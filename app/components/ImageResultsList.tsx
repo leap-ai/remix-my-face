@@ -1,8 +1,9 @@
 import { Box, Image, SimpleGrid } from "@chakra-ui/react";
 import { RemixImage } from "@/types/remix.type";
 import React from "react";
+import ImageResult from "./ImageResult";
 
-export default function ImageResults({ images }: { images: RemixImage[] }) {
+export default function ImageResultsList({ images }: { images: RemixImage[] }) {
   return (
     <SimpleGrid
       columns={{
@@ -16,7 +17,7 @@ export default function ImageResults({ images }: { images: RemixImage[] }) {
       {images.map((image, index) => {
         return (
           <Box key={image.id} width="full" borderRadius="md" overflow="hidden">
-            <Image src={image.uri} alt={image.uri} objectFit="cover" />
+            <ImageResult src={image.uri} />
           </Box>
         );
       })}

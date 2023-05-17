@@ -21,10 +21,13 @@ export default function Navbar() {
       position={"sticky"}
       top={0}
       zIndex={100}
+      userSelect={"none"}
     >
-      <Heading size={"md"}>Remix My Face</Heading>
+      <Heading size={"md"} as={"a"} href={"/"}>
+        Remix My Face
+      </Heading>
       <Spacer />
-      <Tag>v0.04</Tag>
+      <Tag>v0.05</Tag>
       <IconButton
         aria-label={"Toggle Dark Mode"}
         icon={colorMode === "dark" ? <FaSun /> : <FaMoon />}
