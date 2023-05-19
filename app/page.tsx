@@ -32,8 +32,8 @@ export default function Home() {
   const [polling, setPolling] = useState(false);
   const [results, setResults] = useState<RemixImage[]>([]);
   const [prompt, setPrompt] = useState({
-    key: "",
-    value: "",
+    key: "Disney",
+    value: "8k portrait in modern disney style",
   });
 
   // Reset results if image is removed
